@@ -1,0 +1,265 @@
+1.Check Prime Number:
+    <script>
+    var num, i, temp = 0;
+    num = 19;
+
+    for (i = 2; i < Math.sqrt(num); i++) {
+    if (num % i == 0) {
+        temp++;
+        break;
+    }
+    }
+
+    if (temp == 0) {
+    document.write(num + " is a Prime Number");
+    } else {
+    document.write(num + " is not a Prime Number");
+    }
+    </script>
+
+2.Sum of N Natural Numbers:
+    const number = parseInt(prompt('Enter a positive integer: '));
+    let sum = 0;
+
+    for (let i = 1; i <= number; i++) {
+        sum += i;
+    }
+    console.log('The sum of natural numbers:', sum);
+
+3.Factorial of a Number:
+    function factorial(n) {
+        if (n < 0) {
+            return "number has to be positive.";
+        }
+
+        // base case
+        if (n == 0 || n == 1) {
+            return 1;
+        // recursive case
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    let n = 4;
+    let answer = factorial(n);
+    console.log("Factorial of " + n + " : " + answer);
+
+4.Fibonacci Sequence:
+    const number = parseInt(prompt('Enter the number of terms: '));
+    let n1 = 0, n2 = 1, nextTerm;
+
+    console.log('Fibonacci Series:');
+
+    for (let i = 1; i <= number; i++) {
+        console.log(n1);
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+
+5.Armstrong Number:
+    const num = prompt("Enter an integer");
+    const digits = num.length;
+    let sum = 0;
+    let temp = num;
+
+    while (temp > 0) {
+        let remainder = temp % 10;
+        sum += (remainder ** digits);
+        temp = parseInt(temp / 10); // convert float into integer
+    }
+
+    if (sum == num) {
+        console.log(num + " is an Armstrong number");
+    } else {
+        console.log(num + " is not an Armstrong number");
+    }
+
+6.LCM of Two Integers:
+   // JavaScript program to find the LCM of two integers
+    var hcf;
+
+    const num1 = prompt('Enter a first integer: ');
+    const num2 = prompt('Enter a second integer: ');
+
+    while(num1 != num2){
+        if(num1 > num2) 
+            num1 -= num2;
+        else 
+            num2 -= num1;
+    }
+    hcf = num1; 
+    // find LCM
+    let lcm = (num1 * num2) / hcf;
+    console.log("LCM of the two numbers is ", lcm);
+
+
+7.Quotient and Remainder:
+    let dividend = parseInt(prompt("Enter the Dividend: "));
+    let divisor = parseInt(prompt("Enter the Divisor: "));
+
+    let quotient = Math.floor(dividend / divisor);
+    let remainder = dividend % divisor;
+
+    alert("Quotient: " + quotient);
+    alert("Remainder: " + remainder);
+
+8.First Digit of a Number:
+    let number = prompt("Enter a number: ");
+    let firstDigit = number[0];
+    alert("The First Digit is: " + firstDigit);
+
+9.Check Palindrome Number:
+    function isPalindrome(num) {
+        let originalNum = num;
+        let reverseNum = 0;
+
+        while (num > 0) {
+            let digit = num % 10;
+            reverseNum = (reverseNum * 10) + digit;
+            num = Math.floor(num / 10);
+        }
+        return originalNum === reverseNum;
+    }
+
+    let number = parseInt(prompt("Enter a number: "));
+    if (isPalindrome(number)) {
+        alert("This is a palindrome number");
+    } else {
+        alert("Not a palindrome number");
+    }
+
+10.Form Validation:
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Validation using Express-Validator</title>
+    </head>
+    <body>
+        <script>
+            function data() {
+                var confirmPassword = document.getElementById("n1").value;
+                var userId = document.getElementById("n2").value;
+                var contact = document.getElementById("n3").value;
+                var password = document.getElementById("n4").value;
+
+                if (confirmPassword == "" || userId == "" || contact == "" || password == "") {
+                    alert("All fields are mandatory");
+                    return false;
+                }
+                else if (contact.length !== 10) {
+                    alert("Number should be exactly 10 digits! Please enter a valid number");
+                    return false;
+                }
+                else if (isNaN(contact)) {
+                    alert("Only numbers are allowed! Please enter a valid number");
+                    return false;
+                }
+                else if (password !== confirmPassword) {
+                    alert("Please enter the same password");
+                    return false;
+                }
+                return true; // Ensure to return true if validation passes
+            }
+        </script>
+        <form onsubmit="return data()" action="abc.html">
+            UserId: <input type="text" id="n2"><br>
+            Contact: <input type="text" id="n3"><br>
+            Password: <input type="password" id="n4"><br>
+            Confirm Password: <input type="password" id="n1"><br>
+            <input type="submit" value="Submit Your Data">
+        </form>
+    </body>
+    </html>
+
+11.Multiplication Table
+    const number = parseInt(prompt('Enter a number: '));
+    const range = parseInt(prompt('Enter a range: '));
+
+    for (let i = 1; i <= range; i++) {
+        console.log(`${number} * ${i} = ${number * i}`);
+    }
+
+12.Simple Calculator
+const num1 = parseFloat(prompt('Enter first number: '));
+const num2 = parseFloat(prompt('Enter second number: '));
+const operator = prompt('Enter operator (either +, -, * or /): ');
+
+let result;
+switch(operator) {
+    case '+':
+        result = num1 + num2;
+        break;
+    case '-':
+        result = num1 - num2;
+        break;
+    case '*':
+        result = num1 * num2;
+        break;
+    case '/':
+        result = num1 / num2;
+        break;
+    default:
+        alert('Invalid operator');
+        break;
+}
+console.log(`Result: ${num1} ${operator} ${num2} = ${result}`);
+
+13.Display Current Date:
+    let today = new Date();
+    console.log("Current Date: " + today.toDateString());               
+
+14.Table for Squares and Cubes from 1 to 10:
+    // Generate the table rows for numbers 1 to 10
+    const tableBody = document.getElementById('tableBody');
+ 
+    for (let i = 1; i <= 10; i++) {
+        // Create a new row
+        let row = document.createElement('tr');
+
+        // Create and append columns for Number, Square, and Cube
+        let numberCol = document.createElement('td');
+        numberCol.textContent = i;
+
+        let squareCol = document.createElement('td');
+        squareCol.textContent = i * i;
+
+        let cubeCol = document.createElement('td');
+        cubeCol.textContent = i * i * i;
+
+        // Append the columns to the row
+        row.appendChild(numberCol);
+        row.appendChild(squareCol);
+        row.appendChild(cubeCol);
+
+        // Append the row to the table body
+        tableBody.appendChild(row);
+    }
+
+
+15.Sum of Only Positive Numbers:
+    let sum = 0;
+    let num1 = parseInt(prompt('Enter first number: '));
+    let num2 = parseInt(prompt('Enter second number: '));
+    let num3 = parseInt(prompt('Enter third number: '));
+
+    if (num1 > 0) sum += num1;
+    if (num2 > 0) sum += num2;
+    if (num3 > 0) sum += num3;
+
+    console.log(`The sum of positive numbers is: ${sum}`);
+
+16.Compound Interest using Function:
+    function calculateCompoundInterest(principal, rate, time) {
+        let amount = principal * (Math.pow((1 + rate / 100), time));
+        let interest = amount - principal;
+        return interest;
+    }
+
+    const principal = parseFloat(prompt('Enter principal amount: '));
+    const rate = parseFloat(prompt('Enter interest rate: '));
+    const time = parseFloat(prompt('Enter time period in years: '));
+
+    const interest = calculateCompoundInterest(principal, rate, time);
+    console.log(`Compound Interest: ${interest.toFixed(2)}`);

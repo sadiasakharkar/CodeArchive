@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Example</title>
+</head>
+<body>
+    <h3>Calculator Results:</h3>
+    <p id="calcResults"></p>
+
+    <script>
+        // Calculator class definition
+        class Calculator {
+            Add(a, b) {
+                if (Number.isInteger(a) && Number.isInteger(b)) {
+                    // Case 1: Both are integers
+                    return a + b;
+                } else if (typeof a === "number" && typeof b === "number") {
+                    // Case 2: Both are floats or one is float and one is integer
+                    return a + b;
+                } else {
+                    // Case 3: Invalid input
+                    throw new Error("Invalid input. Both arguments must be numbers.");
+                }
+            }
+        }
+
+        // Testing the Calculator class and displaying results
+        const calc = new Calculator();
+        const resultsElement = document.getElementById("calcResults");
+        let results = "";
+
+        try {
+            results += `Sum of two integers (5, 10): ${calc.Add(5, 10)}<br>`;
+            results += `Sum of two floats (5.5, 10.5): ${calc.Add(5.5, 10.5)}<br>`;
+            results += `Sum of one integer and one float (5, 10.5): ${calc.Add(5, 10.5)}<br>`;
+        } catch (error) {
+            results += `Error: ${error.message}`;
+        }
+
+        // Display the results on the page
+        resultsElement.innerHTML = results;
+    </script>
+</body>
+</html>

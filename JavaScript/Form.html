@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Validation using Express-Validator</title>
+</head>
+<body>
+    <script>
+        function data() {
+            var userId = document.getElementById("n1").value;
+            var contact = document.getElementById("n2").value;
+            var password = document.getElementById("n3").value;
+            var confirmPassword = document.getElementById("n4").value;
+
+            if (userId == "" || contact == "" || password == "" || confirmPassword == "") {
+                alert("All fields are mandatory");
+                return false;
+            }
+            else if (contact.length !== 10) {
+                alert("Number should be exactly 10 digits! Please enter a valid number");
+                return false;           
+            }
+            else if (isNaN(contact)) {
+                alert("Only numbers are allowed! Please enter a valid number");
+                return false;
+            }
+            else if (password !== confirmPassword) {
+                alert("Please enter the same password");
+                return false;
+            }
+            return true; // Ensure to return true if validation passes
+        }
+    </script>
+    <form onsubmit = "return data()" action = "abc.html">
+        <label for="n1">UserId:</label>
+        <input type="text" id="n1"><br>
+            
+        <label for="n2">Contact:</label>
+        <input type="text" id="n2"><br>     
+
+        <label for="n3">Password:</label>
+        <input type="password" id="n3"><br>
+
+        <label for="n4">Confirm Password:</label>   
+        <input type="password" id="n4"><br>
+
+        <input type="submit" value="Submit Your Data">
+    </form>
+</body>
+</html>
